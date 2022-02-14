@@ -1,6 +1,5 @@
 body {
     background-color: rgb(110, 81, 1);
-    /* background-color: yellowgreen; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -48,9 +47,6 @@ input {
     background-color: none;
 }
 
-/* input:focus{ */
-
-/* } */
 
 .input{
     background-color: azure;
