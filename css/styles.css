@@ -1,0 +1,88 @@
+body {
+    background-color: rgb(110, 81, 1);
+    /* background-color: yellowgreen; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 100px;
+    height: 500px;
+    width: 300px;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.wrapper{
+    display: flex;
+}
+
+h1 {
+    text-align: right;
+}
+
+.operator{
+    display: flex;
+    flex-direction: column;
+}
+
+.side {
+    background-color: rgb(255, 187, 0);
+    width: 20px;
+    height: 320px;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    border: 0;
+    caret-color: rgb(255, 187, 0);
+    outline: 0;
+    text-align: right;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    background-color: none;
+}
+
+/* input:focus{ */
+
+/* } */
+
+.input{
+    background-color: azure;
+}
+
+.btnRow {
+    display: flex;
+    height: 80px;
+}
+
+.btnRow button{
+    border: 0;
+    outline: 0;
+    width: 77.9px;
+    background-color: rgb(58, 61, 50);
+    color: azure;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+
+
+.operator button{
+    border: 0;
+    width: 65px;
+    height: 64px;
+    background-color: rgb(95, 95, 94);
+    color: azure;
+}
+
+#label{
+    color: rgb(83, 83, 83);
+}
+
+
+
