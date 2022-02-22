@@ -10,6 +10,9 @@ const operations = (e) => {
     console.log(btnValue);
     console.log(inputValue);
 
+
+    
+    
     if (btnValue == 'DEL') {
         display.value = inputValue.slice(0, inputValue.length-1);
         label.value = '';
@@ -19,25 +22,31 @@ const operations = (e) => {
         });
     }
     else if(btnValue == '=') {
-        display.value = eval(inputValue).toLocaleString();
+        
+        display.value = evaluate();
         label.value = '';
+        
         if (display.value == 'undefined') {
             display.value = '';
         }
+
+        
     }
 
     else{
         
-        // To prevent operator at the start od display
-        if(display.value.length  == 0 && /^[+/*]/.test(btnValue)) return;
+        
+
+        // To prevent operator at the start of display
+        if(display.value.length  == 0 && /^[+/*÷x]/.test(btnValue)) return;
         
         const lengths = display.value.length;
         // To stop multiple operators from concatinating
-        if(/[+/*-]/.test(display.value[lengths - 1]) && /[+/*-]/.test(btnValue)) {
+        if(/[+/*÷x-]/.test(display.value[lengths - 1]) && /[+/*÷x-]/.test(btnValue)) {
 
             display.value = display.value.slice(0, lengths-1) + btnValue;
 
-            if(display.value.length < 2 && /^[+/*]/.test(btnValue)) {
+            if(display.value.length < 2 && /^[+/*÷x]/.test(btnValue)) {
                 display.value = '-';
                 return;
             };
@@ -46,25 +55,9 @@ const operations = (e) => {
             
         }
 
-        if ('selectionStart' in display) {
-            // check whether some text is selected in display
-            if (display.selectionStart != display.selectionEnd) {
-                let newText = display.value.substring(0, display.SelectionStart) + 
-                "[start]" + display.value.substring(display.selectionStart, display.selectionEnd) + "[end]" + 
-                display.value.substring(display.selectionEnd);
-                display.value = newText;
-            }
-        }else {
-            let textRange = document.selection.createRange();
-            let rangeParent = textRange.parentElement();
-            if (rangeParent === display) {
-                textRange.text = "[start]" + textRange + "[end]";
-            }
-
-        }
 
         display.value += btnValue;
-        label.value = eval(display.value).toLocaleString();
+        label.value = evaluate();
         
             
     }
@@ -75,3 +68,11 @@ Array.from(buttons).forEach(buttn => {
     buttn.addEventListener('click', operations);
 });
 
+const evaluate = () => {
+    let input = display.value;
+    if (input.includes('x') || input.includes('÷')) {
+        input = input.replace('x', '*');
+        input = input.replace('÷', '/');
+    }
+    return eval(input).toLocaleString();
+}
